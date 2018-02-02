@@ -6,13 +6,15 @@ Telldus Live! to MQTT
 Clone this repository and make a production configuration file
 
 ```
-$ clone https://github.com/xibriz/telldus-mqtt.git
+$ git clone https://github.com/xibriz/telldus-mqtt.git
 $ cd telldus-mqtt/
-$ sudo pip install -r requirements.txr
+$ sudo pip install -r requirements.txt
 $ cp config/default.cfg config/prod.cfg
 ```
 
 Change all the FIXME values in `config/prod.cfg`
+
+## Client
 
 Change the `WorkingDirectory` in `telldus-mqtt.service`
 
@@ -23,6 +25,11 @@ $ sudo cp telldus-mqtt.service /etc/systemd/service/
 $ sudo systemctl enable telldus-mqtt.service
 $ sudo systemctl start telldus-mqtt.service
 ```
+NB! Your service-directory could be different in your distro, etc `/lib/systemd/system`
+
+## Publish
+
+Make cron-jobs that run the `publish_*.py` files.
 
 ## Test
 
