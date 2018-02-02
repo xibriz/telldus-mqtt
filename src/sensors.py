@@ -33,6 +33,13 @@ class Sensors:
 		r = telldus.get(url)
 
 		sensors = r.json()
+		self.lights = r.json()
+		try:
+			print self.lights['error']
+			return None
+		except KeyError:
+			pass
+
 
 		for sensor in sensors['sensor']:
 			for data in sensor['data']:

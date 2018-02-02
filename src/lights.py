@@ -52,6 +52,11 @@ class Lights:
 		r = telldus.get(url)
 
 		self.lights = r.json()
+		try:
+			print self.lights['error']
+			return None
+		except KeyError:
+			pass
 
 		for device in self.lights['device']:
 			if (device['type'] == u'group'):
