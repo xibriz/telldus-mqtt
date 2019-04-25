@@ -1,9 +1,8 @@
 #!/usr/bin/python
 # coding: utf-8
 
-import urllib2
 import json
-import ConfigParser
+import configparser
 import os
 import paho.mqtt.publish as publish
 from requests_oauthlib import OAuth1Session
@@ -12,7 +11,7 @@ import codecs
 class Sensors:
 
 	def __init__(self, config_file):
-		config = ConfigParser.RawConfigParser()
+		config = configparser.SafeConfigParser()
 		config.readfp(codecs.open(config_file, 'r', 'utf8'))
 
 		self.mqtt_ip = config.get('MQTT', 'ip')
@@ -35,7 +34,7 @@ class Sensors:
 		sensors = r.json()
 		self.lights = r.json()
 		try:
-			print self.lights['error']
+			print(self.lights['error'])
 			return None
 		except KeyError:
 			pass

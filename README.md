@@ -8,7 +8,10 @@ Clone this repository and make a production configuration file
 ```
 $ git clone https://github.com/xibriz/telldus-mqtt.git
 $ cd telldus-mqtt/
-$ sudo pip install -r requirements.txt
+$ python3 -m venv venv
+$ source venv/bin/activate
+$ pip3 install pip --upgrade
+$ pip3 install -r requirements.txt
 $ cp config/default.cfg config/prod.cfg
 ```
 
